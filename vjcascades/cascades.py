@@ -155,6 +155,17 @@ class ViolaJonesBoost(object):
       outputs=optimal_alpha(y, conv_shared, solution, weights)
     )
 
+
+  def save(self, path):
+    np.savez(path, filters=self.filters, thresholds=self.thresholds, alphas=self.alphas)
+
+  def load(self, path):
+    f = np.load(path)
+    self.filters = f['filters']
+    self.thresholds = f['filters']
+    self.alphas = f['filters']
+
+
   def predict(self, X):
     self.set_images(X)
     return self._predict(self.filters, self.thresholds, self.alphas)
