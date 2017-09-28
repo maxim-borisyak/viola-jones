@@ -270,16 +270,15 @@ class ViolaJonesBoost(object):
     self.set_images(X)
     self.set_labels(y)
 
+    self.set_weights(
+      np.ones(shape=(X.shape[0]), dtype='float32')
+    )
+
     for i in range(self.n_filters):
-      if i == 0:
-        self.set_weights(
-          np.ones(shape=(X.shape[0]), dtype='float32')
-        )
-      else:
-        predictions = self._predict(self.filters[:i], self.thresholds[:i], self.alphas[:i])
-        losses = np.exp(-y * predictions)
-        self.set_weights(losses)
-        yield losses
-
-
       self.filters[i], self.thresholds[i], self.alphas[i] = self.select_best_filter()
+
+      predictions = self._predict(self.filters[:i], self.thresholds[:i], self.alphas[:i])
+      losses = np.exp(-y * predictions)
+      self.set_weights(losses)
+
+      yield losses
