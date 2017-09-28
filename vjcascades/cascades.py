@@ -276,8 +276,8 @@ class ViolaJonesBoost(object):
 
     for i in range(self.n_filters):
       self.filters[i], self.thresholds[i], self.alphas[i] = self.select_best_filter()
-
-      predictions = self._predict(self.filters[:i], self.thresholds[:i], self.alphas[:i])
+      
+      predictions = self._predict(self.filters[:(i + 1)], self.thresholds[:(i + 1)], self.alphas[:(i + 1)])
       losses = np.exp(-y * predictions)
       self.set_weights(losses)
 
