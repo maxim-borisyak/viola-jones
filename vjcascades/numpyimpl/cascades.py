@@ -1,6 +1,6 @@
 import numpy as np
 
-from search import gss
+from .search import gss
 
 
 def cumulative(images):

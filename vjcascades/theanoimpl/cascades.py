@@ -3,7 +3,7 @@ import numpy as np
 import theano
 import theano.tensor as T
 
-from search import golden_section_search
+from .search import golden_section_search
 
 def _convolve(images, filters):
   return (

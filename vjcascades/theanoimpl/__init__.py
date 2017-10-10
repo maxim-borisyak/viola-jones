@@ -1,1 +1,1 @@
-from cascades import ViolaJonesBoost
+from .cascades import ViolaJonesBoost

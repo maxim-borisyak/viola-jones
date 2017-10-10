@@ -101,3 +101,7 @@ ENV/
 .mypy_cache/
 
 .idea/
+
+tests/mnist.py
+tests/mnist/
+tests/.ipynb_checkpoints/

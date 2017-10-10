@@ -1,1 +1,1 @@
-from cascades import LightViolaJonesBoost
+from .cascades import LightViolaJonesBoost

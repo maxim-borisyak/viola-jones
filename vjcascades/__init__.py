@@ -1,6 +1,6 @@
 try:
-  from theanoimpl import ViolaJonesBoost
+  from .theanoimpl import ViolaJonesBoost
 except ImportError:
   pass
 
-from numpyimpl import LightViolaJonesBoost
+from .numpyimpl import LightViolaJonesBoost
